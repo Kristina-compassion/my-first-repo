@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load extras %}
+{% block title %}Дашборд{% endblock %}
+
+{% block content %}
+<h1>Аналитика продаж</h1>
+
+<div>
+    <h2>Общая статистика</h2>
+    <div>
+        <div>
+            <h3>Продажи</h3>
+            <p>Общая сумма: <strong>{{ total_sales|floatformat:2 }} руб.</strong></p>
+            <p>Средний чек: <strong>{{ sales_stats.mean|floatformat:2 }} руб.</strong></p>
+            <p>Медиана: <strong>{{ sales_stats.median|floatformat:2 }} руб.</strong></p>
+            <p>Мода: <strong>{{ sales_stats.mode|floatformat:2 }} руб.</strong></p>
+        </div>
+        <div>
+            <h3>Возраст клиентов</h3>
+            <p>Средний возраст: <strong>{{ age_stats.mean }} лет</strong></p>
+            <p>Медианный возраст: <strong>{{ age_stats.median }} лет</strong></p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h2>Популярность товаров</h2>
+    <p>Самый популярный тип товара: <strong>{{ popular_types.0 }}</strong> ({{ popular_values.0 }} единиц)</p>
+    <img src="data:image/png;base64,{{ popularity_chart }}" alt="Популярность типов товаров">
+    
+    {% if unsold_products %}
+    <div>
+        <h3>Товары без продаж:</h3>
+        <ul>
+            {% for product in unsold_products %}
+            <li>{{ product }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+
+<div>
+    <h2>Прибыльность товаров</h2>
+    <p>Самый прибыльный тип товара: <strong>{{ profitable_types.0 }}</strong> ({{ profitable_values.0|floatformat:2 }} руб.)</p>
+    <img src="data:image/png;base64,{{ profit_chart }}" alt="Прибыль по типам товаров">
+</div>
+
+<div>
+    <h2>Ежемесячные продажи по типам товаров</h2>
+    <table border="1">
+        <tr>
+            <th>Месяц</th>
+            {% for type in profitable_types %}
+            <th>{{ type }}</th>
+            {% endfor %}
+            <th>Всего</th>
+            <th>Кол-во заказов</th>
+        </tr>
+        {% for month, data in monthly_sales.items %}
+        <tr>
+            <td>{{ month }}</td>
+            {% for type in profitable_types %}
+            <td>{{ data.by_type|get_item:type|floatformat:2 }}</td>
+            {% endfor %}
+            <td><strong>{{ data.total|floatformat:2 }}</strong></td>
+            <td>{{ data.count }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div>
+    <h2>Списки</h2>
+    <div>
+        <div>
+            <h3>Клиенты</h3>
+            <ul>
+                {% for client in clients %}
+                <li>{{ client.last_name }} {{ client.first_name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h3>Товары</h3>
+            <ul>
+                {% for product in products %}
+                <li>{{ product.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

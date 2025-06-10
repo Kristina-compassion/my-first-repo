@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}{{ action }}{% endblock %}
+
+{% block content %}
+<div>
+    <h1>{{ action }}</h1>
+
+    <!-- Отдельная форма для фильтров -->
+    <form method="post">
+        {% csrf_token %}
+        <h2>Фильтры товаров</h2>
+        <div>
+            <label>Категория:</label>
+            <select name="category">
+                <option value="">Все категории</option>
+                {% for category in categories %}
+                <option value="{{ category.id }}" {% if category.id|stringformat:"s" == request.POST.category %}selected{% endif %}>
+                    {{ category.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>Производитель:</label>
+            <select name="manufacturer">
+                <option value="">Все производители</option>
+                {% for manufacturer in manufacturers %}
+                <option value="{{ manufacturer.id }}" {% if manufacturer.id|stringformat:"s" == request.POST.manufacturer %}selected{% endif %}>
+                    {{ manufacturer.name }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <label>Поиск:</label>
+            <input type="text" name="search" value="{{ request.POST.search }}" placeholder="Название товара">
+
+            <button type="submit">Применить фильтры</button>
+            <button type="submit" name="clear_filter" value="1">Сбросить фильтры</button>
+        </div>
+    </form>
+
+    <!-- Отдельная форма для заказа -->
+    <form method="post">
+        {% csrf_token %}
+        <h2>Данные заказа</h2>
+        {% if form.errors %}
+        <div>
+            <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                <li>{{ field.label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <div>
+            <label for="id_employee">Ответственный сотрудник:</label>
+            <select name="employee">
+                <option value="">Выберите сотрудника</option>
+                {% for employee in employees %}
+                <option value="{{ employee.id }}" {% if employee.id == form.employee.value %}selected{% endif %}>
+                    {{ employee.last_name }} {{ employee.first_name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div>
+            <label for="id_delivery_date">Дата доставки:</label>
+            {{ form.delivery_date }}
+        </div>
+
+        <div>
+            <label for="id_delivery_address">Адрес доставки:</label>
+            {{ form.delivery_address }}
+        </div>
+
+        <div>
+            <label for="id_comment">Комментарий к заказу:</label>
+            {{ form.comment }}
+        </div>
+
+        <h2>Товары в заказе</h2>
+        {{ formset.management_form }}
+        {% for form in formset.forms %}
+        <div style="margin-bottom: 10px; padding: 5px; border: 1px solid #ddd;">
+            {{ form.id }}
+            <div>
+                <label>Товар:</label>
+                <select name="{{ form.prefix }}-product">
+                    <option value="">Выберите товар</option>
+                    {% for product in products %}
+                    <option value="{{ product.id }}" {% if product.id == form.product.value %}selected{% endif %}>
+                        {{ product.name }} ({{ product.manufacturer.name }}) - {{ product.price }} руб.
+                    </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                <label>Количество:</label>
+                <input type="number" name="{{ form.prefix }}-quantity" value="{{ form.quantity.value|default:1 }}" min="1">
+            </div>
+            {% if form.instance.pk %}
+            <div>
+                <label>
+                    <input type="checkbox" name="{{ form.prefix }}-DELETE"> Удалить
+                </label>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        
+        <div>
+            <button type="submit" name="save_order" value="1">{{ action }}</button>
+            <a href="{% url 'order_list' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

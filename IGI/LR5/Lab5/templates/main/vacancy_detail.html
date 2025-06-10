@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ vacancy.title }}{% endblock %}
+{% block content %}
+<h1>{{ vacancy.title }}</h1>
+<p><strong>Дата публикации:</strong> {{ vacancy.date_posted }}</p>
+<p><strong>Статус:</strong> {% if vacancy.is_open %}Открыта{% else %}Закрыта{% endif %}</p>
+<div>{{ vacancy.description|linebreaks }}</div>
+
+{% if user.is_staff %}
+  <p>
+    <a href="{% url 'vacancy_edit' vacancy.pk %}">Редактировать</a> |
+    <a href="{% url 'vacancy_delete' vacancy.pk %}">Удалить</a>
+  </p>
+{% endif %}
+<p><a href="{% url 'vacancy_list' %}">← К списку вакансий</a></p>
+{% endblock %}

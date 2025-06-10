@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block content %}
+<h1>{{ article.title }}</h1>
+<p><em>Дата публикации: {{ article.date_published }}</em></p>
+<p>{{ article.short_content }}</p>
+<div>
+    {{ article.full_content|linebreaks }}
+</div>
+{% if article.image %}
+    <div>
+        <img src="{{ article.image.url }}" alt="{{ article.title }}" style="max-width: 300px;">
+    </div>
+{% endif %}
+<p>
+    <a href="{% url 'news_edit' article.pk %}">Редактировать</a> |
+    <a href="{% url 'news_delete' article.pk %}">Удалить</a> |
+    <a href="{% url 'news_list' %}">К списку новостей</a>
+</p>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1>Добро пожаловать!</h1>
+
+{# 1) Последняя новость #}
+{% if latest %}
+<section>
+  <h2>Последняя новость</h2>
+  <h3><a href="{% url 'news_detail' latest.pk %}">{{ latest.title }}</a></h3>
+  <p>{{ latest.short_content|truncatechars:200 }}</p>
+  <p><a href="{% url 'news_list' %}">Все новости →</a></p>
+</section>
+<hr>
+{% endif %}
+
+{# 2) Случайная цитата #}
+<section>
+  <h2>Цитата дня</h2>
+  <blockquote>
+    "{{ quote.body }}"
+  </blockquote>
+  <p>— {{ quote.author }}</p>
+  <p><a href="https://favqs.com/api/qotd" target="_blank" rel="noopener">Fav Quotes API</a></p>
+</section>
+<hr>
+
+{# 3) Случайная шутка #}
+<section>
+  <h2>Случайная шутка</h2>
+  <p><strong>{{ joke.setup }}</strong></p>
+  <p>{{ joke.punchline }}</p>
+  <p><a href="https://github.com/15Dkatz/official_joke_api" target="_blank" rel="noopener">Joke API</a></p>
+</section>
+{% endblock %}

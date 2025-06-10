@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Словарь терминов{% endblock %}
+{% block content %}
+<h1>Словарь терминов</h1>
+{% if user.is_staff %}
+<p><a href="{% url 'glossary_create' %}">Добавить новый термин</a></p>
+{% endif %}
+
+{% if terms %}
+<ul>
+  {% for term in terms %}
+  <li>
+    <a href="{% url 'glossary_detail' term.pk %}">{{ term.term }}</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Терминов пока нет.</p>
+{% endif %}
+{% endblock %}

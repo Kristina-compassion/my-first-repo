@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div>
+    <div>
+        <h1>{{ product.name }}</h1>
+        <div>
+            <span>{{ product.product_type.name }}</span>
+            <span>{{ product.manufacturer.name }}</span>
+        </div>
+    </div>
+
+    <div>
+        {% if product.image %}
+        <div>
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        {% endif %}
+
+        <div>
+            <div>
+                <span>{{ product.price }} руб.</span>
+            </div>
+
+            {% if product.description %}
+            <div>
+                <h2>Описание</h2>
+                <p>{{ product.description }}</p>
+            </div>
+            {% endif %}
+
+            {% if product.specifications %}
+            <div>
+                <h2>Характеристики</h2>
+                <p>{{ product.specifications }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

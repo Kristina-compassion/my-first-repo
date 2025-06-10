@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}Заказ #{{ order.pk }}{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Заказ #{{ order.pk }}</h1>
+
+    <div style="margin-bottom: 20px;">
+        <h2>Информация о заказе</h2>
+        <div style="margin-bottom: 10px;">
+            <strong>Дата создания:</strong> {{ order.date_created|date:"d.m.Y H:i" }}
+        </div>
+        <div style="margin-bottom: 10px;">
+            <strong>Дата доставки:</strong> {{ order.delivery_date|date:"d.m.Y" }}
+        </div>
+        <div style="margin-bottom: 10px;">
+            <strong>Адрес доставки:</strong> {{ order.delivery_address }}
+        </div>
+        <div style="margin-bottom: 10px;">
+            <strong>Клиент:</strong> {{ order.client.first_name }} {{ order.client.last_name }}
+        </div>
+        {% if order.employee %}
+        <div style="margin-bottom: 10px;">
+            <strong>Ответственный сотрудник:</strong> {{ order.employee.last_name }} {{ order.employee.first_name }}
+        </div>
+        {% endif %}
+        {% if order.comment %}
+        <div style="margin-bottom: 10px;">
+            <strong>Комментарий к заказу:</strong><br>
+            {{ order.comment }}
+        </div>
+        {% endif %}
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <h2>Товары в заказе</h2>
+        {% for item in order.order_items.all %}
+        <div style="margin-bottom: 10px; padding: 5px; border: 1px solid #ddd;">
+            <div>
+                <strong>{{ item.product.name }}</strong> ({{ item.product.manufacturer.name }})
+            </div>
+            <div>
+                Количество: {{ item.quantity }} шт.
+            </div>
+            <div>
+                Цена: {{ item.price_at_order }} руб.
+            </div>
+            <div>
+                <strong>Итого: {{ item.total_price }} руб.</strong>
+            </div>
+        </div>
+        {% endfor %}
+        <div style="margin-top: 10px; padding: 5px; border: 1px solid #ddd; font-weight: bold;">
+            Общая сумма заказа: {{ order.total_sum }} руб.
+        </div>
+    </div>
+
+    <div>
+        <a href="{% url 'order_list' %}">← К списку заказов</a>
+        {% if user.is_staff or order.client.user == user %}
+        | <a href="{% url 'order_edit' order.pk %}">Редактировать</a>
+        | <a href="{% url 'order_delete' order.pk %}">Удалить</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

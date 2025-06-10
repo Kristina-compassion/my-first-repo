@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Контакт: {{ contact.employee.first_name }} {{ contact.employee.last_name }}{% endblock %}
+{% block content %}
+<h1>Контакты {{ contact.employee.last_name }} {{ contact.employee.first_name }}</h1>
+
+{% if contact.photo %}
+  <img src="{{ contact.photo.url }}" alt="Фото {{ contact.employee.first_name }}" style="max-width:200px;">
+{% endif %}
+
+<p><strong>Описание работ:</strong><br>{{ contact.job_description|linebreaks }}</p>
+<p><strong>Основной телефон:</strong> {{ contact.employee.phone }}</p>
+<p><strong>Основной email:</strong> <a href="mailto:{{ contact.employee.email }}">{{ contact.employee.email }}</a></p>
+
+{% if contact.extra_phone %}
+  <p><strong>Доп. телефон:</strong> {{ contact.extra_phone }}</p>
+{% endif %}
+{% if contact.extra_email %}
+  <p><strong>Доп. Email:</strong> <a href="mailto:{{ contact.extra_email }}">{{ contact.extra_email }}</a></p>
+{% endif %}
+
+{% if user.is_staff %}
+  <p>
+    <a href="{% url 'contact_edit' contact.pk %}">Редактировать</a> |
+    <a href="{% url 'contact_delete' contact.pk %}">Удалить</a>
+  </p>
+{% endif %}
+<p><a href="{% url 'contact_list' %}">← К списку контактов</a></p>
+{% endblock %}

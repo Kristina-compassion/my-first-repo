@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Промокоды{% endblock %}
+{% block content %}
+<h1>Доступные промокоды</h1>
+
+{% if user.is_staff %}
+  <p><a href="{% url 'promocode_create' %}">Создать промокод</a></p>
+{% endif %}
+
+{% if promocodes %}
+<table border="1" cellpadding="5" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Код</th>
+      <th>Тип скидки</th>
+      <th>Величина</th>
+      <th>Действует с</th>
+      <th>Действует до</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in promocodes %}
+    <tr>
+      <td>{{ p.code }}</td>
+      <td>
+        {% if p.discount_type == 'percent' %}Процент{% else %}Фиксированная{% endif %}
+      </td>
+      <td>
+        {% if p.discount_type == 'percent' %}
+          {{ p.discount_value }} %
+        {% else %}
+          {{ p.discount_value }}
+        {% endif %}
+      </td>
+      <td>{{ p.date_start }}</td>
+      <td>{{ p.date_end }}</td>
+      {% if user.is_staff %}
+      <td>
+        <a href="{% url 'promocode_edit' p.pk %}">Ред.</a> |
+        <a href="{% url 'promocode_delete' p.pk %}">Уд.</a>
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Сейчас нет действующих промокодов.</p>
+{% endif %}
+{% endblock %}

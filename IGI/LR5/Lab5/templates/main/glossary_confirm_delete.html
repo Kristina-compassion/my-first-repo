@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Дашборд{% endblock %}
+
+{% block content %}
+<h1>Панель статистики</h1>
+
+<h2>Возрастная статистика клиентов</h2>
+<table>
+  <tr><th>Statistic</th><th>Value</th></tr>
+  {% for row in age_stats %}
+  <tr>
+    <td>{{ row.Statistic }}</td>
+    <td>{{ row.Value }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<h2>Продажи по типам товаров</h2>
+<img src="data:image/png;base64,{{ chart1 }}" alt="Продажи по типам">
+
+<h2>Ежемесячные продажи по типам</h2>
+<img src="data:image/png;base64,{{ chart2 }}" alt="Ежемесячные продажи">
+
+<h2>Общая сумма продаж</h2>
+<p>{{ total_sales }}</p>
+{% endblock %}

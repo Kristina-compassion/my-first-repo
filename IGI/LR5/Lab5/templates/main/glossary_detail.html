@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}{{ term.term }}{% endblock %}
+{% block content %}
+<h1>{{ term.term }}</h1>
+<p>{{ term.definition|linebreaks }}</p>
+<p><em>Добавлено: {{ term.date_added }}</em></p>
+
+{% if user.is_staff %}
+<p>
+  <a href="{% url 'glossary_edit' term.pk %}">Редактировать</a> |
+  <a href="{% url 'glossary_delete' term.pk %}">Удалить</a>
+</p>
+{% endif %}
+
+<p><a href="{% url 'glossary_list' %}">← К списку терминов</a></p>
+{% endblock %}

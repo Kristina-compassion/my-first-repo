@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Удалить промокод{% endblock %}
+{% block content %}
+<h1>Удалить промокод?</h1>
+<p>Вы уверены, что хотите удалить код «{{ promocode.code }}»?</p>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Да, удалить</button>
+  <a href="{% url 'promocode_list' %}">Нет, вернуться</a>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Подробно о клиенте{% endblock %}
+
+{% block content %}
+<h1>Клиент: {{ client.last_name }} {{ client.first_name }}</h1>
+
+<ul>
+    <li><strong>Фамилия:</strong> {{ client.last_name }}</li>
+    <li><strong>Имя:</strong> {{ client.first_name }}</li>
+    <li><strong>Дата рождения:</strong> {{ client.date_of_birth }}</li>
+    <li><strong>Телефон:</strong> {{ client.phone }}</li>
+    <li><strong>Email:</strong> {{ client.email }}</li>
+    <li><strong>Адрес:</strong> {{ client.address }}</li>
+</ul>
+
+<p>
+    <a href="{% url 'client_list' %}">← Вернуться к списку клиентов</a>
+    |
+    <a href="{% url 'product_list' %}">К списку товаров</a>
+</p>
+{% endblock %}

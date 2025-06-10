@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Мой профиль{% endblock %}
+
+{% block content %}
+<h1>Профиль: {{ request.user.username }}</h1>
+
+{% if client_profile %}
+  <h2>Данные клиента</h2>
+  <ul>
+    <li>ФИО: {{ client_profile.first_name }} {{ client_profile.last_name }}</li>
+    <li>Дата рождения: {{ client_profile.date_of_birth }}</li>
+    <li>Телефон: {{ client_profile.phone }}</li>
+    <li>Email: {{ client_profile.email }}</li>
+    <li>Адрес: {{ client_profile.address }}</li>
+  </ul>
+
+  <h3>Мои заказы</h3>
+  {% if client_orders %}
+    <table cellpadding="5" border="1">
+      <tr>
+        <th>#</th><th>Дата создания</th><th>Дата доставки</th><th>Сумма</th><th>Действия</th>
+      </tr>
+      {% for o in client_orders %}
+      <tr>
+        <td>{{ o.pk }}</td>
+        <td>{{ o.date_created|date:"Y-m-d H:i" }}</td>
+        <td>{{ o.delivery_date }}</td>
+        <td>{{ o.total_sum }}</td>
+        <td>
+          <a href="{% url 'order_detail' o.pk %}">Просмотр</a>
+          {% if o.client.user == request.user %}
+            | <a href="{% url 'order_edit' o.pk %}">Редактировать</a>
+            | <a href="{% url 'order_delete' o.pk %}">Удалить</a>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>У вас нет созданных заказов.</p>
+  {% endif %}
+{% endif %}
+
+{% if employee_profile %}
+  <h2>Данные сотрудника</h2>
+  <ul>
+    <li>ФИО: {{ employee_profile.first_name }} {{ employee_profile.last_name }}</li>
+    {# любые другие поля сотрудника #}
+  </ul>
+
+  <h3>За заказы, за которые я ответственен</h3>
+  {% if staff_orders %}
+    <table cellpadding="5" border="1">
+      <tr>
+        <th>#</th><th>Клиент</th><th>Дата создания</th><th>Дата доставки</th><th>Сумма</th><th>Действия</th>
+      </tr>
+      {% for o in staff_orders %}
+      <tr>
+        <td>{{ o.pk }}</td>
+        <td>{{ o.client.first_name }} {{ o.client.last_name }}</td>
+        <td>{{ o.date_created|date:"Y-m-d H:i" }}</td>
+        <td>{{ o.delivery_date }}</td>
+        <td>{{ o.total_sum }}</td>
+        <td><a href="{% url 'order_detail' o.pk %}">Просмотр</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Нет заказов, за которые вы ответственны.</p>
+  {% endif %}
+{% endif %}
+
+{% if not client_profile and not employee_profile %}
+  <p>Профиль не заполнен. Пожалуйста, зарегистрируйтесь или обратитесь к администратору.</p>
+{% endif %}
+
+{% endblock %}

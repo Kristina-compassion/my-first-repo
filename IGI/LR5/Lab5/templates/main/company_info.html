@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {# Заголовок страницы #}
+  {% if info %}
+    {{ info.title }}
+  {% else %}
+    О компании
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <h1>
+    {% if info %}
+      {{ info.title }}
+    {% else %}
+      О компании
+    {% endif %}
+  </h1>
+
+  {% if info %}
+    <p><strong>Описание:</strong></p>
+    <div>
+      {{ info.description|linebreaks }}
+    </div>
+    <p><strong>Адрес:</strong> {{ info.address }}</p>
+  {% else %}
+    <p>Информация о компании пока не добавлена.</p>
+  {% endif %}
+
+  {% if user.is_staff %}
+    <p>
+      <a href="{% url 'company_info_edit' %}">
+        {% if info %}
+          Редактировать данные компании
+        {% else %}
+          Добавить данные компании
+        {% endif %}
+      </a>
+    </p>
+  {% endif %}
+{% endblock %}

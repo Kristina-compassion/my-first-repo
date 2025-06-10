@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Контакты сотрудников{% endblock %}
+{% block content %}
+<h1>Контакты сотрудников</h1>
+{% if user.is_staff %}
+<p><a href="{% url 'contact_create' %}">Добавить контакт</a></p>
+{% endif %}
+
+{% if contacts %}
+<ul>
+  {% for c in contacts %}
+    <li>
+      <a href="{% url 'contact_detail' c.pk %}">
+        {{ c.employee.last_name }} {{ c.employee.first_name }}
+      </a>
+      — {{ c.job_description|truncatechars:50 }}
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Нет ни одного контакта.</p>
+{% endif %}
+{% endblock %}
