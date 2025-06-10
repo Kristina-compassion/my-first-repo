@@ -1,0 +1,3 @@
+count of narrative sentences: 19
+count of interrogative sentences: 1
+count of incentive sentences: 0
