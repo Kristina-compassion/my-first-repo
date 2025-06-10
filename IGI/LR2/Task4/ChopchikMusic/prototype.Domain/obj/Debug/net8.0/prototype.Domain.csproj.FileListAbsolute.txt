@@ -1,0 +1,13 @@
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/bin/Debug/net8.0/prototype.Domain.deps.json
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/bin/Debug/net8.0/prototype.Domain.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/bin/Debug/net8.0/prototype.Domain.pdb
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.AssemblyInfoInputs.cache
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.AssemblyInfo.cs
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.csproj.CoreCompileInputs.cache
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/refint/prototype.Domain.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.pdb
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/ref/prototype.Domain.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.sourcelink.json
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Domain/obj/Debug/net8.0/prototype.Domain.csproj.AssemblyReference.cache

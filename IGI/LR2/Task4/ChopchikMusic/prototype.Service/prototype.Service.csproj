@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\prototype.Domain\prototype.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="UserUseCases\" />
+    <None Remove="UserUseCases\Commands\" />
+    <None Remove="UserUseCases\Queries\" />
+    <None Remove="PlaylistUseCases\" />
+    <None Remove="PlaylistUseCases\Queries\" />
+    <None Remove="PlaylistUseCases\Commands\" />
+    <None Remove="SongUseCases\" />
+    <None Remove="SongUseCases\Queries\" />
+    <None Remove="SongUseCases\Commands\" />
+    <None Remove="GenresUseCases\" />
+    <None Remove="GenresUseCases\Commands\" />
+    <None Remove="GenresUseCases\Queries\" />
+    <None Remove="AlbumUseCases\" />
+    <None Remove="AlbumUseCases\Commands\" />
+    <None Remove="AlbumUseCases\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UserUseCases\" />
+    <Folder Include="UserUseCases\Commands\" />
+    <Folder Include="UserUseCases\Queries\" />
+    <Folder Include="PlaylistUseCases\" />
+    <Folder Include="PlaylistUseCases\Queries\" />
+    <Folder Include="PlaylistUseCases\Commands\" />
+    <Folder Include="SongUseCases\" />
+    <Folder Include="SongUseCases\Queries\" />
+    <Folder Include="SongUseCases\Commands\" />
+    <Folder Include="GenresUseCases\" />
+    <Folder Include="GenresUseCases\Commands\" />
+    <Folder Include="GenresUseCases\Queries\" />
+    <Folder Include="AlbumUseCases\" />
+    <Folder Include="AlbumUseCases\Commands\" />
+    <Folder Include="AlbumUseCases\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+  </ItemGroup>
+</Project>

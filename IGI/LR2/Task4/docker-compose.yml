@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  back:
+    build: ./ChopchikMusic
+    ports:
+      - "5285:5285"
+      - "7113:7113"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_URLS=http://+:5285
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=musictest;Username=postgres;Password=1234
+    networks:
+      - music_network
+
+  db:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: musictest
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - music_network
+
+  front:
+    build: ./Music
+    ports:
+      - "8080:80"
+    depends_on:
+      - back
+    networks:
+      - music_network
+
+volumes:
+  postgres_data:
+
+networks:
+  music_network:
+    driver: bridge
+

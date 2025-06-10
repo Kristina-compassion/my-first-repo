@@ -1,0 +1,452 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+body{
+    background-color: #262624;
+}
+
+.wrapper{
+    margin-left: 40%;
+    margin-top: 7%;
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: black;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: height .2s ease;
+}
+
+.wrapper.active {
+    height: 650px;
+}
+
+.wrapper .form-box{
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login{
+    transition: transform .2s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    width: 80%;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .2s ease;
+    transform: translateX(0);
+}
+
+.form-box h2{
+    font-size: 2em;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid honeydew;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+
+.input-box input{
+    width: 90%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 0 0 0 5px;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background: white;
+    color: black;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.login-register{
+    font-size: .9em;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a{
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+.password-error{
+    text-align: center;
+}
+
+header{
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav{
+    list-style: none;
+    display: flex;
+    width: 100%;
+}
+
+.main-nav li{
+    margin-top: 40px;
+}
+
+nav button{
+    position: relative;
+    font-size: 1.1em;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    background: none;
+    border: none;
+}
+
+nav button::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: yellow;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+nav button:hover::after{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.playlist-image{
+    width: 200px;
+    height: 200px;
+}
+
+.playlist-image:hover{
+    outline: yellow solid 3px;
+}
+
+.playlist-name{
+    font-size: 1.2em;
+    font-weight: 400;
+}
+
+.playlist-ref button{
+    display: block;
+    background: none;
+    border: none;
+}
+
+#playlist-list{
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 220px);
+    grid-template-rows: 250px;
+}
+
+#song-list{
+    list-style: none;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+#song-list li{
+    margin-top: 10px;
+}
+
+.song-button{
+    border: none;
+    font-size: 1em;
+    background: transparent;
+    cursor: pointer;
+}
+
+#audioPlayer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 999;
+}
+
+#playlists{
+    /*display: none;*/
+}
+
+#new-playlist{
+    display: none;
+}
+
+.head{
+    display: flex;
+}
+
+.head-item img{
+    height: 200px;
+    width: 200px;
+}
+
+.head-item{
+    margin-left: 10px;
+}
+
+.head-item h4{
+    margin-top: 0;
+    color: gray;
+}
+
+.head-item h2{
+    font-size: 2.4em;
+    margin-top: -20px;
+}
+
+/*.search{
+    margin-top: 20px;
+    outline: yellow solid 3px;
+    height: 25px;
+    width: 60%;
+    margin-left: 15px;
+}*/
+
+.head-item button{
+    margin-top: 160px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.head-item input{
+    width: 90%;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 2.4em;
+    margin-top: -20px;
+    font-weight: 600;
+}
+
+main{
+    display: flex;
+}
+
+#songs{
+    width: 500px;
+    margin-right: 0;
+}
+
+.base{
+    width: 1500px;
+}
+
+.audio-player-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #262624;
+    box-sizing: border-box;
+}
+
+.audio-player-container button{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 25px;
+}
+
+#progressBarContainer {
+    width: 100%;
+    height: 10px;
+    background-color: #262624;
+    cursor: pointer;
+}
+
+#progressBar {
+    width: 0;
+    height: 100%;
+    background-color: yellow;
+}
+
+#pauseButton{
+    display: none;
+}
+
+#audio-buttons{
+    margin-top: 5px;
+    margin-left: 50px;
+    display: flex;
+    align-items: flex-start;
+}
+
+#audio-buttons span{
+    margin-left: 20px;
+    display: block;
+    margin-top: 3px;
+}
+
+#buttons{
+    margin-top: -50px;
+}
+
+#searchResults div{
+    display: flex;
+}
+
+select{
+    font-size: 16px;
+    background: #262624;
+    border: none;
+    outline: none;
+}
+
+option{
+    background: #262624;
+    font-size: 16px;
+    border: none;
+    outline: none;
+}
+
+#search button{
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#search input{
+    background: #262624;
+    border: yellow 1px solid;
+}
+
+#song-name{
+    display: block;
+}
+
+#upload-music{
+    align-items: center;
+}
+
+#uploadBtn{
+    font-size: 1.3em;
+    outline: none;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    align-items: center;
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+#uploadForm input{
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+#uploadForm label{
+    font-size: 1.2em;
+}
+
+#file-upload-button{
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.add-to-playlist-button {
+    margin-left: 10px;
+    margin-top: -3px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#chart-list{
+    list-style: none;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+#songs{
+}
+
+#search{
+    padding-bottom: 20px;
+}
+
+#searchResults div{
+    margin-top: 15px;
+}

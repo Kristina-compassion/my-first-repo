@@ -1,0 +1,88 @@
+﻿<Properties StartupConfiguration="{C76D4977-436A-47AE-B657-E9143869B860}|http">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Controllers/LibraryController.cs">
+    <Files>
+      <File FileName="Program.cs" />
+      <File FileName="Controllers/HomeController.cs" Line="24" Column="1" />
+      <File FileName="Models/ErrorViewModel.cs" />
+      <File FileName="../prototype.Domain/Entities/Entity.cs" />
+      <File FileName="../prototype.Domain/Entities/Song.cs" />
+      <File FileName="../prototype.Domain/Entities/Album.cs" />
+      <File FileName="../prototype.Persistence/Repository/EfUnitOfWork.cs" />
+      <File FileName="../prototype.Domain/Entities/User.cs" Line="12" Column="89" />
+      <File FileName="../prototype.Persistence/DependencyInjection.cs" />
+      <File FileName="../prototype.Persistence/GlobalUsing.cs" />
+      <File FileName="appsettings.json" />
+      <File FileName="../prototype.Service/DbInitializer.cs" Line="20" Column="1" />
+      <File FileName="../prototype.Service/GlobalUsing.cs" />
+      <File FileName="../prototype.Service/AuthenticateService.cs" />
+      <File FileName="../prototype.Service/DependencyInjection.cs" />
+      <File FileName="GlobalUsing.cs" />
+      <File FileName="../prototype.Domain/Response/BaseResponse.cs" />
+      <File FileName="../prototype.Domain/Jwt/AuthOptions.cs" />
+      <File FileName="../prototype.Service/UserUseCases/Commands/AddUserCommand.cs" />
+      <File FileName="../prototype.Service/UserUseCases/Commands/AddUserCommandHandler.cs" />
+      <File FileName="../prototype.Service/UserUseCases/Queries/GetUserByNameQueryHandler.cs" />
+      <File FileName="Controllers/LibraryController.cs" Line="61" Column="14" />
+      <File FileName="../prototype.Service/PlaylistUseCases/Queries/GetPlaylistByIdQuery.cs" Line="1" Column="1" />
+      <File FileName="../prototype.Service/PlaylistUseCases/Queries/GetPlaylistByIdQueryHandler.cs" />
+      <File FileName="../prototype.Service/UserUseCases/Queries/GetUserByNameQuery.cs" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetSongByPlaylistIdQueryHandler.cs" Line="19" Column="1" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetSongByPlaylistIdQuery.cs" Line="9" Column="10" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetFavouriteSongsByUserId.cs" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetFavouriteSongsByUserIdHandler.cs" Line="27" Column="36" />
+      <File FileName="../prototype.Service/SongUseCases/Commands/AddSongCommand.cs" Line="14" Column="20" />
+      <File FileName="../prototype.Service/SongUseCases/Commands/AddSongCommandHandler.cs" Line="46" Column="66" />
+      <File FileName="../prototype.Service/SongUseCases/Commands/AddFavouriteSongCommand.cs" />
+      <File FileName="../prototype.Service/SongUseCases/Commands/AddFavouriteSongCommandHandler.cs" />
+      <File FileName="../prototype.Service/PlaylistUseCases/Commands/AddPlaylistCommand.cs" />
+      <File FileName="../prototype.Service/PlaylistUseCases/Commands/AddPlaylistCommandHandler.cs" />
+      <File FileName="../prototype.Domain/Entities/Playlist.cs" />
+      <File FileName="../prototype.Domain/Entities/PlaylistUser.cs" />
+      <File FileName="../prototype.Service/GenresUseCases/Queries/GetAllGenresQueryHandler.cs" />
+      <File FileName="../prototype.Service/GenresUseCases/Commands/AddGenreCommand.cs" />
+      <File FileName="../prototype.Service/GenresUseCases/Commands/AddGenreCommandHandler.cs" />
+      <File FileName="../prototype.Service/GenresUseCases/Queries/GetFavouriteGenresQuery.cs" />
+      <File FileName="../prototype.Service/GenresUseCases/Queries/GetFavouriteGenresQueryHandler.cs" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetSongsByAlbumIdCommand.cs" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetSongsByAlbumIdCommandHandler.cs" />
+      <File FileName="../prototype.Service/AlbumUseCases/Queries/GetAlbumsByAuthorQuery.cs" />
+      <File FileName="../prototype.Service/AlbumUseCases/Queries/GetAlbumsByAuthorQueryHandler.cs" />
+      <File FileName="Properties/launchSettings.json" Line="9" Column="6" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetSongsByNameQuery.cs" />
+      <File FileName="../prototype.Service/SongUseCases/Queries/GetSongsByNameQueryHandler.cs" />
+      <File FileName="../prototype.Service/AlbumUseCases/Commands/AddAlbumCommand.cs" Line="11" Column="10" />
+      <File FileName="../prototype.Service/AlbumUseCases/Commands/AddAlbumCommandHandler.cs" Line="44" Column="19" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="prototype">
+            <Node name="prototype">
+              <Node name="Controllers" expanded="True">
+                <Node name="LibraryController.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="prototype.Domain" expanded="True">
+              <Node name="Entities" expanded="True" />
+            </Node>
+            <Node name="prototype.Service">
+              <Node name="AlbumUseCases" expanded="True">
+                <Node name="Commands" expanded="True" />
+              </Node>
+              <Node name="SongUseCases" expanded="True">
+                <Node name="Commands" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.prototype PreferredExecutionTarget="/Applications/Google Chrome.app" />
+</Properties>

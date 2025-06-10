@@ -1,0 +1,16 @@
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/bin/Debug/net8.0/prototype.Service.deps.json
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/bin/Debug/net8.0/prototype.Service.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/bin/Debug/net8.0/prototype.Service.pdb
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.GeneratedMSBuildEditorConfig.editorconfig
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.AssemblyInfoInputs.cache
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.AssemblyInfo.cs
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.csproj.CoreCompileInputs.cache
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/refint/prototype.Service.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.pdb
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/ref/prototype.Service.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.sourcelink.json
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.csproj.AssemblyReference.cache
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/bin/Debug/net8.0/prototype.Domain.dll
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/bin/Debug/net8.0/prototype.Domain.pdb
+/Users/rinatbaitasov/Rinat/Univers/OOP/Project/prototype.Service/obj/Debug/net8.0/prototype.Service.csproj.CopyComplete

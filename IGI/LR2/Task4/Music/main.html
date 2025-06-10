@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="main-nav">
+                <img src="logo.png" style="width: 100px; height: 100px"/>
+                <li><button onclick="cancelPlaylist()">Главная</button></li>
+                <li><button id="upload-music-button">Загрузить музыку</button></li>
+                <li><button id="search-button">Поиск</button></li>
+                <li><button id="chart-button">Чарт</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="audio-player-container">
+            <audio id="audioPlayer"></audio>
+            <div id="progressBarContainer">
+                <div id="progressBar"></div>
+            </div>
+            <div id="audio-buttons">
+                <button id="playBackButton"><ion-icon name="play-back"></ion-icon></button>
+                <button id="playButton"><ion-icon name="play"></ion-icon></button>
+                <button id="pauseButton"><ion-icon name="pause"></ion-icon></button>
+                <button id="playForwardButton"><ion-icon name="play-forward"></ion-icon></button>
+                <button id="favouriteButton"><ion-icon name="heart-outline"></ion-icon></button>
+                <span id="song-author" style="font-weight: 300"></span>
+                <span id="song-name"></span>
+            </div>
+        </div>
+        <div class="base">
+            <div id="playlists">
+                <h1>Плейлисты</h1>
+                <ul id="playlist-list">
+                </ul>
+            </div>
+            <div id="new-playlist">
+                <div class="head">
+                    <div class="head-item">
+                        <img src="plus.png" alt="add-playlist">
+                    </div>
+                    <div class="head-item">
+                        <h4>плейлист</h4>
+                        <input type="text" id="playlistname" value="Новый плейлист"/>
+                        <div id="buttons">
+                            <button onclick="cancelPlaylist()">Отмена</button>
+                            <button onclick="createPlaylist()">Создать</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="search" style="display:none">
+                <h1>Поиск музыки</h1>
+                <input type="text" id="searchInput" placeholder="Введите название песни">
+                <button onclick="searchMusic()">Поиск</button>
+                <div id="searchResults">
+
+                </div>
+            </div>
+            <div id="upload-music" style="display:none">
+                <h1>Загрузить музыку</h1>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input type="file" id="musicFile" name="musicFile" accept=".mp3,.wav,.ogg" required>
+                    <br>
+                    <label for="songTitle">Название песни:</label>
+                    <input type="text" id="songTitle" name="songTitle" required value="Название">
+                    <br>
+                    <button id="uploadBtn" type="submit">Загрузить</button>
+                </form>
+            </div>
+            <div id="chart" style="display:none">
+                <h1>Чарт</h1>
+                <ul id="chart-list">
+
+                </ul>
+            </div>
+        </div>
+        <div id="songs">
+            <h1 id="playlist-name"></h1>
+            <ul id="song-list">
+
+            </ul>
+        </div>
+    </main>
+    <script src="main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
